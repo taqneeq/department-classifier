@@ -7,9 +7,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        custom: ['"DM Mono"', "monospace"],
+        gameplay: ["var(--font-gameplay)"],
+        joganSoft: ["var(--font-jogan-soft)"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      backgroundImage: {
+        'noise': "url('/public/noise.png')",
       },
     },
   },

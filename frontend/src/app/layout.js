@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import FlickeringGrid from "@/app/components/dots";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -6,6 +7,19 @@ const geistSans = localFont({
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
+const gameplay = localFont({
+  src: "./fonts/Gameplay.ttf",
+  variable: "--font-gameplay",
+  weight: "100 900",
+});
+
+const joganSoft = localFont({
+  src: "/fonts/JoganSoft-Regular.ttf",
+  variable: "--font-jogan-soft",
+  weight: "100 900",
+});
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -21,8 +35,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
       >
+        
+        <FlickeringGrid
+          className="z-0 fixed inset-0 h-screen w-screen"
+          squareSize={4}
+          gridGap={10}
+          color="#6B7280"
+          maxOpacity={0.2}
+          flickerChance={1}
+        />
+      
         {children}
       </body>
     </html>
