@@ -14,10 +14,10 @@ class Config:
     SIMILARITY_THRESHOLD = 0.8
     CACHE_DIR = "cache"
     
-    # Model configs
     MODEL_PATH = "models"
-    RF_MODEL_FILE = "random_forest_model.pkl"
-    LABEL_ENCODER_FILE = "label_encoder.pkl"
+    os.makedirs(MODEL_PATH, exist_ok=True) 
+    RF_MODEL_FILE = os.path.join(MODEL_PATH, "random_forest_model.pkl") 
+    LABEL_ENCODER_FILE = os.path.join(MODEL_PATH, "label_encoder.pkl")  
     
     # Weights for ensemble
     RF_WEIGHT = 0.3

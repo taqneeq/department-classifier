@@ -26,16 +26,37 @@ class EnhancedClassifier:
         """Load or initialize all required models"""
         os.makedirs(Config.MODEL_PATH, exist_ok=True)
         
-        self.train_models()
+        # Try to load existing models first
+        model_path = Config.RF_MODEL_FILE
+        encoder_path = Config.LABEL_ENCODER_FILE
+
+        
+        if os.path.exists(model_path) and os.path.exists(encoder_path):
+            try:
+                print("Loading existing Random Forest model...")
+                with open(model_path, 'rb') as f:
+                    self.rf_model = pickle.load(f)
+                with open(encoder_path, 'rb') as f:
+                    self.label_encoder = pickle.load(f)
+                print("Models loaded successfully!")
+            except Exception as e:
+                print(f"Error loading existing models: {str(e)}")
+                print("Training new models...")
+                self.train_models()
+        else:
+            print("No existing models found. Training new models...")
+            self.train_models()
             
         self.vector_store = VectorStore()
         if not self.vector_store.load():
+            print("Initializing vector store...")
             doc_processor = DocumentProcessor()
             pdf_chunks = doc_processor.process_documents()
             self.vector_store.initialize(pdf_chunks)
     
     def train_models(self):
         """Train Random Forest model using the dataset"""
+        print("Training Random Forest model...")
         data = pd.read_csv('DataSet.csv')
         
         feature_columns = data.columns[2:].tolist()
@@ -47,11 +68,16 @@ class EnhancedClassifier:
         self.rf_model = RandomForestClassifier(n_estimators=100, max_depth=None, random_state=42)
         self.rf_model.fit(X, y)
         
-        with open(os.path.join(Config.MODEL_PATH, Config.RF_MODEL_FILE), 'wb') as f:
+        # Save the trained models
+        print("Saving trained models...")
+        with open(Config.RF_MODEL_FILE, 'wb') as f:
             pickle.dump(self.rf_model, f)
-        with open(os.path.join(Config.MODEL_PATH, Config.LABEL_ENCODER_FILE), 'wb') as f:
+        with open(Config.LABEL_ENCODER_FILE, 'wb') as f:
             pickle.dump(self.label_encoder, f)
-    
+
+        print("Models saved successfully!")
+
+    # Rest of the class remains the same...
     def predict(self, quiz_answers: Dict[int, str]) -> Dict[str, Any]:
         """Make predictions using RF, RAG, and LLM"""
         # Get RF predictions
