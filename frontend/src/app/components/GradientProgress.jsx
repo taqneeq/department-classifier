@@ -3,14 +3,14 @@
 import React, { useState, useEffect } from "react";
 
 const GradientProgress = ({ options, value, onChange }) => {
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(-1);
 
   useEffect(() => {
     if (value) {
       const index = options.findIndex((option) => option.value === value);
-      if (index !== -1) {
-        setSelected(index);
-      }
+      setSelected(index !== -1 ? index : -1);
+    } else {
+      setSelected(-1); // Reset when value is empty or undefined
     }
   }, [value, options]);
 

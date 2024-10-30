@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative h-screen w-full overflow-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative h-screen w-full overflow-x-hidden`}
       >
         <FlickeringGrid
           className="z-0 fixed inset-0 h-screen w-screen"

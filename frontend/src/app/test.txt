@@ -1,0 +1,17 @@
+{
+    confidence_scores: {
+      rag_score: 0,
+      rf_scores: {
+        "Digital Creatives": 0.19,
+        "In House": 0.14,
+        "Tech And Collab": 0.22,
+      },
+    },
+    explanation:
+      "**1. Tech And Collab Fit:**\n\nThe Tech And Collab department aligns well with your strengths in creative expression, problem-solving, and relationship-building. Your passion for technology and event planning would be valuable assets to the team.\n\n**2. Key Skills:**\n\n* Creative thinking\n* Problem-solving abilities\n* Communication and persuasion skills\n* Networking and event planning experience\n\n**3. Growth Opportunities:**\n\n* Hone your event planning and execution skills\n* Develop expertise in emerging technologies\n* Build a valuable professional network\n\n**4. Additional Advice:**\n\n* Showcase your passion for technology and innovation through contributions to departmental initiatives.\n* Seek mentorship from experienced team members to enhance your skills and knowledge.",
+    predictions: [
+      { confidence: 6.6, department: "Tech And Collab", source: "Hybrid" },
+      { confidence: 5.7, department: "Digital Creatives", source: "Hybrid" },
+      { confidence: 4.2, department: "In House", source: "Hybrid" },
+    ],
+  }
