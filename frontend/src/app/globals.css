@@ -15,7 +15,13 @@
     --foreground: #ededed;
   }
 }
-
+@font-face {
+  font-family: "Jogan Soft";
+  src: url("/JoganSoft-Regular.ttf");
+}
+.font-joganSoft {
+  font-family: "Jogan Soft";
+}
 body {
   color: var(--foreground);
   background-color: #111;

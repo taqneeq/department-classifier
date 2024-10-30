@@ -14,11 +14,6 @@ const gameplay = localFont({
   weight: "100 900",
 });
 
-const joganSoft = localFont({
-  src: "/fonts/JoganSoft-Regular.ttf",
-  variable: "--font-jogan-soft",
-  weight: "100 900",
-});
 
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
