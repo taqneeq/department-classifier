@@ -101,16 +101,16 @@ def submit_quiz():
             return jsonify({"error": "No predictions generated"}), 500
 
         # Get alternative suggestions
-        alternatives = classifier.llm_manager.generate_alternative_suggestions(
-            classifier.quiz_manager._generate_rag_query(processed_answers),
-            [pred['department'] for pred in results['predictions'][:2]]
-        )
+        # alternatives = classifier.llm_manager.generate_alternative_suggestions(
+        #     classifier.quiz_manager._generate_rag_query(processed_answers),
+        #     [pred['department'] for pred in results['predictions'][:2]]
+        # )
 
         # Format response for frontend
         response = {
             "predictions": results["predictions"],
             "explanation": results["llm_explanation"],
-            "alternatives": alternatives,
+            # "alternatives": alternatives,
             "confidence_scores": {
                 "rf_scores": dict(results["rf_departments"]),
                 "rag_score": results["rag_result"].get("confidence", 0)
