@@ -209,7 +209,7 @@ export function MovingCards({ questionsData, onSubmit }) {
           transform="translate(1 1)"
           strokeWidth="2"
         >
-          <circle cx="22" cy="22" r="6" stroke-opacity="0">
+          <circle cx="22" cy="22" r="6" strokeOpacity="0">
             <animate
               attributeName="r"
               begin="1.5s"
@@ -219,7 +219,7 @@ export function MovingCards({ questionsData, onSubmit }) {
               repeatCount="indefinite"
             />
             <animate
-              attributeName="stroke-opacity"
+              attributeName="strokeOpacity"
               begin="1.5s"
               dur="3s"
               values="1;0"
