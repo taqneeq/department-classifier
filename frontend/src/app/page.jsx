@@ -84,7 +84,7 @@ export default function Home() {
         <FadeIn.Container>
           <FadeIn.Item>
             <h1 className="w-2/3 bg-none lg:w-2/3 text-3xl md:text-5xl lg:text-6xl mx-auto text-white opacity-80 font-gameplay text-wrap text-center pb-6">
-              Let's find your department
+              {"Let's find your department"}
             </h1>
           </FadeIn.Item>
           <FadeIn.Item>
